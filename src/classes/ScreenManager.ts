@@ -29,17 +29,17 @@ export class ScreenManager{
 
     private MainMenu(){
         $.text.size = 30;
-        $.mouse.fill = "white";   
+        $.mouse.colour = "white";   
         if($.mouse.x >= ($.w/2)-130 && $.mouse.x <= ($.w/2)+130 && $.mouse.y >= 75 && $.mouse.y <= 125){
-            $.colour.fill = "grey";
-            $.mouse.fill = "blue";
+            $.shape.colour = "grey";
+            $.mouse.colour = "blue";
 
             if($.mouse.leftReleased === true){
                 this.screenSwitched = true;
                 this.currentScreen = "character_select";
             }
         }else{
-            $.colour.fill = "black";
+            $.shape.colour = "black";
         }
 
         $.shape.rectangle(
@@ -48,25 +48,24 @@ export class ScreenManager{
             260,        // width size
             50          // height size
         );
-        $.colour.fill = "white";
+        $.text.colour = "white";
         $.text.print($.w/2, 100, "Pick Character");
-
     }
 
     private CharacterSelect(){
         $.text.size = 30;
-        $.mouse.fill = "white";
+        $.mouse.colour = "white";
         //$.text.print($.mouse.x, $.mouse.y - 40, `x=${$.mouse.x}, y=${$.mouse.y}, $.h-120= ${$.h - 125}, $.h= ${$.h}`);
         if($.mouse.x >= ($.w/2)-100 && $.mouse.x <= ($.w/2)+100 && $.mouse.y >= $.h - 125 && $.mouse.y <= $.h-77){
-            $.colour.fill = "grey";
-            $.mouse.fill = "blue";
+            $.shape.colour = "grey";
+            $.mouse.colour = "blue";
 
             if($.mouse.leftReleased === true){
                 this.screenSwitched = true;
                 this.currentScreen = "play";
             }
         }else{
-            $.colour.fill = "black";
+            $.shape.colour = "black";
         }
 
         $.shape.rectangle(
@@ -75,12 +74,12 @@ export class ScreenManager{
             200,        // width size
             50          // height size
         );
-        $.colour.fill = "white";
+        $.text.colour = "white";
         $.text.print($.w/2, $.h - 100, "Play");
     }
 
     private Play(){
-        $.mouse.fill = "white";
+        $.mouse.colour = "white";
     }
 }
 
