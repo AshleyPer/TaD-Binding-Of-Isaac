@@ -312,8 +312,34 @@ let lastDirection = "";
 
 let mapManager = new MapManager;
 
+let basementDoorLeftImage = $.loadImage(0,$.h/2 - 40,"assets/images/areas/basement/door_left.png");
+basementDoorLeftImage.scale = 48;
+let basementDoorRightImage = $.loadImage($.w - 60,$.h/2-30,"assets/images/areas/basement/door_right.png");
+basementDoorRightImage.scale = 48;
+let basementDoorTopImage = $.loadImage($.w/2,0,"assets/images/areas/basement/door_up.png");
+basementDoorTopImage.scale = 48;
+let basementDoorBottomImage = $.loadImage($.w/2,$.h-60,"assets/images/areas/basement/door_bottom.png");
+basementDoorBottomImage.scale = 48;
+
 let basementMapImage = $.loadImage($.w/2,$.h/2,"assets/images/areas/basement/basement.png");
-let basementMap = new LevelMap("basement",basementMapImage);
+let basementMap = new LevelMap("basement",basementMapImage, 
+    {
+        LeftDoor:true,
+        RightDoor:true,
+        TopDoor:true,
+        BottomDoor:true,
+        LeftDoorImage:basementDoorLeftImage,     
+        RightDoorImage:basementDoorRightImage,
+        TopDoorImage:basementDoorTopImage,
+        BottomDoorImage:basementDoorBottomImage
+    });
+/*export interface IMapDoor{
+
+    LeftDoorImage: Stamp,
+    RightDoorImage: Stamp,
+    TopDoorImage: Stamp,
+    BottomDoorImage: Stamp,
+}*/
 
 let isAttacking = false;
 
@@ -364,6 +390,7 @@ function update() {
     }else if(screenManager.currentScreen === "play"){
         mapManager.currentLevelMap = mapManager.findMapByName("basement")!;
         mapManager.currentLevelMap.draw();
+        mapManager.currentLevelMap.drawDoors();
         
         characterManager.currentCharacter!.collider.draw();
         characterManager.currentCharacter!.drawHealthBar()
