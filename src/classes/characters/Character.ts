@@ -16,16 +16,16 @@ export class Character{
     private heartHalfImage:Stamp;
     private imageArray:Array<ICharacterImage> = [];
 
-    constructor(name:string,image:Stamp,stats:ICharacterStats, x:number, y:number, tearImage:Stamp, heartImage:Stamp, heartHalfImage:Stamp, index:number, drawOnMenu:boolean=true){
+    constructor(name:string,image:Stamp,stats:ICharacterStats, tearImage:Stamp, heartImage:Stamp, heartHalfImage:Stamp, index:number, drawOnMenu:boolean=true){
         this.name = name;
         this.image = image;
         this.stats = stats;
         this.maxHealth = stats.Health;
         this._currentHealth = this.maxHealth;
         let initialAngle = (Math.PI/2) - (index)*(Math.PI/(17/2));
-        let x2 = 300 * Math.cos(initialAngle)+ ($.w/2);
-        let y2 = 150 * Math.sin(initialAngle)+ ($.h/2-130);
-        this.collider = $.makeCircleCollider(x2,y2,200);
+        let initialX = 300 * Math.cos(initialAngle)+ ($.w/2);
+        let initialY = 150 * Math.sin(initialAngle)+ ($.h/2-130);
+        this.collider = $.makeCircleCollider(initialX,initialY,200);
         this.collider.initialAngle = initialAngle;
         this.collider.currentAngle = this.collider.initialAngle;
         this.collider.asset = image;

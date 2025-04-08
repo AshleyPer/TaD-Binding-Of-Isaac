@@ -31,7 +31,6 @@ let isaacUpImage = $.loadImage(0,0,"assets/images/characters/isaac/isaac_profile
 let isaac = new Character(
     "isaac", isaacImage,
     {Health:6,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -90,7 +89,6 @@ let magdaleneImage = $.loadImage(0,0,"assets/images/characters/magdalene/magdale
 let magdalene = new Character(
     "magdalene", magdaleneImage,
     {Health:8,Damage:3.5,DamageMultiplier:1,MovementSpeed:0.85,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -101,7 +99,6 @@ let cainImage = $.loadImage(0,0,"assets/images/characters/cain/cain_profile.png"
 let cain = new Character(
     "cain", cainImage,
     {Health:4,Damage:3.5,DamageMultiplier:1.2,MovementSpeed:1.3,TearSpeed:0,Range:4.5,ShotSpeed:1,Luck:1,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -113,7 +110,6 @@ let judasImage = $.loadImage(0,0,"assets/images/characters/judas/judas_profile.p
 let judas = new Character(
     "judas", judasImage,
     {Health:2,Damage:3,DamageMultiplier:1.35,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -124,7 +120,6 @@ let darkjudasImage = $.loadImage(0,0,"assets/images/characters/darkjudas/darkjud
 let darkjudas = new Character(
     "darkjudas", darkjudasImage,
     {Health:4,Damage:3.5,DamageMultiplier:2,MovementSpeed:1.1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -137,7 +132,6 @@ let bluebabyImage = $.loadImage(0,0,"assets/images/characters/bluebaby/bluebaby_
 let bluebaby = new Character(
     "bluebaby", bluebabyImage,
     {Health:6,Damage:3.5,DamageMultiplier:1.05,MovementSpeed:1.1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -148,7 +142,6 @@ let eveImage = $.loadImage(0,0,"assets/images/characters/eve/eve_profile.png");
 let eve = new Character(
     "eve", eveImage,
     {Health:4,Damage:3.5,DamageMultiplier:0.75,MovementSpeed:1.23,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -159,7 +152,6 @@ let samsonImage = $.loadImage(0,0,"assets/images/characters/samson/samson_profil
 let samson = new Character(
     "samson", samsonImage,
     {Health:6,Damage:3.5,DamageMultiplier:1,MovementSpeed:1.1,TearSpeed:-0.1,Range:5,ShotSpeed:1.31,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -170,7 +162,6 @@ let azazelImage = $.loadImage(0,0,"assets/images/characters/azazel/azazel_profil
 let azazel = new Character(
     "azazel", azazelImage,
     {Health:6,Damage:3.5,DamageMultiplier:1.5,MovementSpeed:1.25,TearSpeed:0,Range:4.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:true},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -183,7 +174,6 @@ let lazarusImage = $.loadImage(0,0,"assets/images/characters/lazarus/lazarus_pro
 let lazarus = new Character(
     "lazarus", lazarusImage,
     {Health:6,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:4.5,ShotSpeed:1,Luck:-1,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -194,7 +184,6 @@ let lazarusRisenImage = $.loadImage(0,0,"assets/images/characters/lazarus_risen/
 let lazarusRisen = new Character(
     "lazarus risen", lazarusRisenImage,
     {Health:2,Damage:3.5,DamageMultiplier:1.4,MovementSpeed:1.25,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -214,7 +203,6 @@ let edenImage = $.loadImage(0,0,"assets/images/characters/eden/eden_profile.png"
 let eden = new Character(
     "eden", edenImage,
     {Health:8,Damage:3,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:5,ShotSpeed:1,Luck:1,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -226,7 +214,6 @@ let lostImage = $.loadImage(0,0,"assets/images/characters/lost/lost_profile.png"
 let lost = new Character(
     "lost", lostImage,
     {Health:1,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:true},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -238,7 +225,6 @@ let lilithImage = $.loadImage(0,0,"assets/images/characters/lilith/lilith_profil
 let lilith = new Character(
     "lilith", lilithImage,
     {Health:6,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -250,7 +236,6 @@ let keeperImage = $.loadImage(0,0,"assets/images/characters/keeper/keeper_profil
 let keeper = new Character(
     "keeper", keeperImage,
     {Health:3,Damage:3.5,DamageMultiplier:1.2,MovementSpeed:0.9,TearSpeed:-1.9,Range:6.5,ShotSpeed:1,Luck:-2,Projectiles:3,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -261,7 +246,6 @@ let apollyonImage = $.loadImage(0,0,"assets/images/characters/apollyon/apollyon_
 let apollyon = new Character(
     "apollyon", apollyonImage,
     {Health:4,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -275,7 +259,6 @@ let theforgottenImage = $.loadImage(0,0,"assets/images/characters/theforgotten/t
 let theforgotten = new Character(
     "theforgotten", theforgottenImage,
     {Health:6,Damage:3.5,DamageMultiplier:1.5,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -286,7 +269,6 @@ let thesoulImage = $.loadImage(0,0,"assets/images/characters/thesoul/thesoul_pro
 let thesoul = new Character(
     "thesoul", thesoulImage,
     {Health:2,Damage:3.5,DamageMultiplier:1,MovementSpeed:1.3,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:true},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -297,7 +279,6 @@ let bethanyImage = $.loadImage(0,0,"assets/images/characters/bethany/bethany_pro
 let bethany = new Character(
     "bethany", bethanyImage,
     {Health:6,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -308,7 +289,6 @@ let jacobImage = $.loadImage(0,0,"assets/images/characters/jacob/jacob_profile.p
 let jacob = new Character(
     "jacob", jacobImage,
     {Health:6,Damage:2.75,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0.277,Range:5,ShotSpeed:1.15,Luck:1,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,
@@ -319,7 +299,6 @@ let esauImage = $.loadImage(0,0,"assets/images/characters/esau/esau_profile.png"
 let esau = new Character(
     "esau", esauImage,
     {Health:4,Damage:3.75,DamageMultiplier:1,MovementSpeed:1,TearSpeed:-0.1,Range:8,ShotSpeed:0.85,Luck:-1,Projectiles:1,Flight:false},
-    $.w/2,$.h/2 + 20,
     tearImage,
     heartImageFull,
     heartImageHalf,

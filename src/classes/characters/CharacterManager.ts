@@ -63,10 +63,13 @@ export class CharacterManager{
     }
 
     public selectCurrentCharacter(){
+        console.log("hi")
         for(let i = 0; i < this.Characters.length; i++){
             if(this.Characters[i].collider.index === 0){
                 console.log(this.Characters[i].name)
                 this.currentCharacter = this.Characters[i];
+                this.currentCharacter!.collider.x = $.w/2;
+                this.currentCharacter!.collider.y = $.h/2 - 50;
             }
         }
     }
