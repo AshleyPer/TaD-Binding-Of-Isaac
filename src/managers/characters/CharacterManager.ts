@@ -46,6 +46,7 @@ export class CharacterManager{
                 }else{
                     this.Characters[i].collider.index++;
                 }
+                this.Characters[i].collider.currentAngle -= Math.PI/(17/2);
             }
             this.Characters[i].collider.x = 300 * Math.cos(this.Characters[i].collider.currentAngle)+ ($.w/2);
             this.Characters[i].collider.y = 150 * Math.sin(this.Characters[i].collider.currentAngle)+ ($.h/2-130);
