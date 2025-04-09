@@ -1,4 +1,4 @@
-import { LevelMap } from "./LevelMap.ts";
+import { LevelMap } from "../../classes/levels/maps/LevelMap.ts";
 
 export class MapManager{
     public LevelMaps : Array<LevelMap> = [];

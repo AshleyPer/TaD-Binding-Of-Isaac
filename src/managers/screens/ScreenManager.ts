@@ -1,4 +1,4 @@
-import { $ } from "../../lib/TeachAndDraw";
+import { $ } from "../../../lib/TeachAndDraw";
 
 export class ScreenManager{
     public theCurrentScreen:string;
