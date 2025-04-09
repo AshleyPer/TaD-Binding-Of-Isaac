@@ -407,8 +407,6 @@ function update() {
         checkKeyReleasedCharacterSelect();
         characterManager.currentCharacter = isaac;
         characterManager.DrawGroup();
-        tearImage.draw();
-        //calculateCharacterSelectMenu();
     }else if(screenManager.currentScreen === "play"){
         mapManager.currentLevelMap!.draw();
         mapManager.currentLevelMap!.drawDoors();
