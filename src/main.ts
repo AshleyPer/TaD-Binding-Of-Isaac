@@ -1,9 +1,9 @@
 // @ts-ignore
 import { $ } from "../lib/TeachAndDraw.js";
-import { CharacterManager } from "./classes/characters/CharacterManager.js";
+import { CharacterManager } from "./managers/characters/CharacterManager.js";
 import { Character } from "./classes/characters/Character.js";
-import { ScreenManager } from "./classes/ScreenManager.js";
-import { MapManager } from "./classes/levels/maps/MapManager.js";
+import { ScreenManager } from "./managers/screens/ScreenManager.js";
+import { MapManager } from "./managers/maps/MapManager.js";
 import { LevelMap } from "./classes/levels/maps/LevelMap.js";
 $.use(update);
 
@@ -322,26 +322,44 @@ let basementDoorBottomImage = $.loadImage($.w/2,$.h-60,"assets/images/areas/base
 basementDoorBottomImage.scale = 48;
 
 let basementMapImage = $.loadImage($.w/2,$.h/2,"assets/images/areas/basement/basement.png");
-let basementMap = new LevelMap("basement",basementMapImage, 
+let basementMap = new LevelMap(0, "basement",basementMapImage, 
     {
-        LeftDoor:true,
-        RightDoor:true,
-        TopDoor:true,
-        BottomDoor:true,
+        LeftDoor:2,
+        RightDoor:undefined,
+        TopDoor:1,
+        BottomDoor:undefined,
         LeftDoorImage:basementDoorLeftImage,     
         RightDoorImage:basementDoorRightImage,
         TopDoorImage:basementDoorTopImage,
         BottomDoorImage:basementDoorBottomImage
     });
-/*export interface IMapDoor{
 
-    LeftDoorImage: Stamp,
-    RightDoorImage: Stamp,
-    TopDoorImage: Stamp,
-    BottomDoorImage: Stamp,
-}*/
+let basementMap2 = new LevelMap(1, "basement",basementMapImage, 
+    {
+        LeftDoor:undefined,
+        RightDoor:undefined,
+        TopDoor:undefined,
+        BottomDoor:0,
+        LeftDoorImage:basementDoorLeftImage,     
+        RightDoorImage:basementDoorRightImage,
+        TopDoorImage:basementDoorTopImage,
+        BottomDoorImage:basementDoorBottomImage
+    });
+    
+let basementMap3 = new LevelMap(2, "basement",basementMapImage, 
+    {
+        LeftDoor:undefined,
+        RightDoor:0,
+        TopDoor:undefined,
+        BottomDoor:undefined,
+        LeftDoorImage:basementDoorLeftImage,     
+        RightDoorImage:basementDoorRightImage,
+        TopDoorImage:basementDoorTopImage,
+        BottomDoorImage:basementDoorBottomImage
+    });
 
 let isAttacking = false;
+let changedRoomSpot = undefined;
 
 function preload(){
     characterManager.AddToGroup(isaac);
@@ -367,7 +385,11 @@ function preload(){
     characterManager.AddToGroup(darkjudas);
 
     mapManager.AddToLevelArray(basementMap);
-    
+    mapManager.AddToLevelArray(basementMap2);
+    mapManager.AddToLevelArray(basementMap3);
+
+    //temporarily set the first map
+    mapManager.currentLevelMap = basementMap;
 }
 
 function update() {
@@ -388,9 +410,8 @@ function update() {
         tearImage.draw();
         //calculateCharacterSelectMenu();
     }else if(screenManager.currentScreen === "play"){
-        mapManager.currentLevelMap = mapManager.findMapByName("basement")!;
-        mapManager.currentLevelMap.draw();
-        mapManager.currentLevelMap.drawDoors();
+        mapManager.currentLevelMap!.draw();
+        mapManager.currentLevelMap!.drawDoors();
         
         characterManager.currentCharacter!.collider.draw();
         characterManager.currentCharacter!.drawHealthBar()
@@ -399,6 +420,12 @@ function update() {
         checkKeyDownMovement();
         checkNoMoveShootHeldinPlay();
         characterManager.currentCharacter?.tearGroup.draw();
+        changedRoomSpot = mapManager.checkIfCharacterTouchedDoor(characterManager.currentCharacter!.collider.x, characterManager.currentCharacter!.collider.y)!;
+        if(changedRoomSpot !== undefined){
+            characterManager.currentCharacter!.collider.x = changedRoomSpot.newX;
+            characterManager.currentCharacter!.collider.y = changedRoomSpot.newY;
+            changedRoomSpot = undefined;
+        }
     }
 }
 
