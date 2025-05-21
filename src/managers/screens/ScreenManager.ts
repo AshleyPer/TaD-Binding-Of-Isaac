@@ -24,6 +24,8 @@ export class ScreenManager{
             this.CharacterSelect();
         }else if(this.currentScreen === "play"){
             this.Play();
+        }else if(this.currentScreen === "gameover"){
+            this.Gameover();
         }
     }
 
@@ -80,6 +82,12 @@ export class ScreenManager{
 
     private Play(){
         $.mouse.colour = "white";
+    }
+
+    private Gameover(){
+        $.text.size = 50;
+        $.text.colour = "white";
+        $.text.print($.w/2, 100, "Game over");
     }
 }
 

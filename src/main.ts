@@ -464,6 +464,10 @@ function update() {
             characterManager.currentCharacter!.damagedAnimation!.y = characterManager.currentCharacter!.collider.y;
             characterManager.currentCharacter!.damagedAnimation?.draw();
         }
+
+        if(characterManager.currentCharacter?.currentHealth! <= 0){
+            screenManager.currentScreen = "gameover";
+        }
     }
 }
 

@@ -122,8 +122,10 @@ export class Character{
 
     public takeDamage(damage : number){
         console.log("take damage")
+        this._currentHealth -= damage;
+        console.log("this._currentHealth = ", this._currentHealth)
         //if(this.timers.InvulnerabilityTimer.doneThisFrame()){
-            this._currentHealth = damage;
+
         //}
     }
 }
