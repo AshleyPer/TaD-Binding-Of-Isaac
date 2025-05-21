@@ -1,7 +1,10 @@
+import { MovingStamp } from "../../../lib/Animation.js";
 import { Stamp } from "../../../lib/Img.js";
 import { $ } from "../../../lib/TeachAndDraw.js";
 import { ICharacterImage } from "../../interfaces/ICharacterImage.js";
 import { ICharacterStats } from "../../interfaces/ICharacterStats.js";
+import { ICharacterTimers } from "../../interfaces/ICharacterTimers.js";
+import { Timer } from "../additional/Timer.js";
 
 export class Character{
     public collider:any;
@@ -15,8 +18,10 @@ export class Character{
     private heartImage:Stamp;
     private heartHalfImage:Stamp;
     private imageArray:Array<ICharacterImage> = [];
+    public timers:ICharacterTimers;
+    public damagedAnimation:MovingStamp|undefined;
 
-    constructor(name:string,image:Stamp,stats:ICharacterStats, tearImage:Stamp, heartImage:Stamp, heartHalfImage:Stamp, index:number, drawOnMenu:boolean=true){
+    constructor(name:string,image:Stamp,stats:ICharacterStats, tearImage:Stamp, heartImage:Stamp, heartHalfImage:Stamp, index:number, drawOnMenu:boolean=true, damagedAnimation:MovingStamp|undefined=undefined){
         this.name = name;
         this.image = image;
         this.stats = stats;
@@ -25,7 +30,7 @@ export class Character{
         let initialAngle = (Math.PI/2) - (index)*(Math.PI/(17/2));
         let initialX = 300 * Math.cos(initialAngle)+ ($.w/2);
         let initialY = 150 * Math.sin(initialAngle)+ ($.h/2-130);
-        this.collider = $.makeCircleCollider(initialX,initialY,200);
+        this.collider = $.makeCircleCollider(initialX,initialY,110);
         this.collider.initialAngle = initialAngle;
         this.collider.currentAngle = this.collider.initialAngle;
         this.collider.asset = image;
@@ -33,9 +38,13 @@ export class Character{
         this.collider.drawOnMenu = drawOnMenu;
         this.collider.currentImageName = "down";
         this.collider.index = index;
+        this.collider.xOffset = -24;
+        this.collider.yOffset = -30;
         this.tearImage = tearImage;
         this.heartImage = heartImage;
         this.heartHalfImage = heartHalfImage;
+        this.timers = {InvulnerabilityTimer:new Timer(2000)};
+        this.damagedAnimation = damagedAnimation;
     }
 
     public addToImageArray(theImage:ICharacterImage){
@@ -47,11 +56,12 @@ export class Character{
     }
     
     public set currentHealth(damage : number) {
+        console.log("this._currentHealth = ", this._currentHealth)
         this._currentHealth = this._currentHealth-damage;
     }
 
     public makeTear(direction : number, imageName: string){
-        let newTear:any = $.makeCircleCollider(this.collider.x-6,this.collider.y+25,200);
+        let newTear:any = $.makeCircleCollider(this.collider.x-6,this.collider.y+25,22);
         newTear.asset = this.tearImage;
         newTear.asset.scale = 35;
         newTear.static = true;
@@ -59,6 +69,8 @@ export class Character{
         newTear.direction = direction;
         newTear.speed = 80 * this.stats.ShotSpeed;
         newTear.mass = 0;
+        newTear.xOffset = -6;
+        newTear.yOffset = -6;
         if(this.name === "eve" && this._currentHealth === 2){
             newTear.damage = this.stats.Damage * 1;
         }else{
@@ -106,5 +118,12 @@ export class Character{
                 return this.imageArray[i];
             }
         }
+    }
+
+    public takeDamage(damage : number){
+        console.log("take damage")
+        //if(this.timers.InvulnerabilityTimer.doneThisFrame()){
+            this._currentHealth = damage;
+        //}
     }
 }

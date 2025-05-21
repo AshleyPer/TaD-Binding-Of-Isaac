@@ -5,10 +5,14 @@ import { Character } from "./classes/characters/Character.js";
 import { ScreenManager } from "./managers/screens/ScreenManager.js";
 import { MapManager } from "./managers/maps/MapManager.js";
 import { LevelMap } from "./classes/levels/maps/LevelMap.js";
+import { Spike } from "./classes/obstacles/spikes/Spike.js";
+import { SpikeManager } from "./classes/obstacles/spikes/SpikeManager.js";
+
 $.use(update);
 
 $.w = 1200;
 $.h = 600;
+
 //$.debug = true;
 
 let characterManager = new CharacterManager;
@@ -28,13 +32,28 @@ let isaacRightImage = $.loadImage(0,0,"assets/images/characters/isaac/isaac_prof
 let isaacShootingRightImage = $.loadImage(0,0,"assets/images/characters/isaac/isaac_profile_right_shooting.png");
 let isaacUpImage = $.loadImage(0,0,"assets/images/characters/isaac/isaac_profile_up.png");
 
+let isaacDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/isaac/isaac_damaged.png",
+    "assets/images/characters/isaac/isaac_profile.png",
+    "assets/images/characters/isaac/isaac_damaged.png",
+    "assets/images/characters/isaac/isaac_profile.png",
+    "assets/images/characters/isaac/isaac_damaged.png",
+);
+
+isaacDamagedAnimation.duration = 2;
+isaacDamagedAnimation.scale = 40;
+
 let isaac = new Character(
     "isaac", isaacImage,
     {Health:6,Damage:3.5,DamageMultiplier:1,MovementSpeed:1,TearSpeed:0,Range:6.5,ShotSpeed:1,Luck:0,Projectiles:1,Flight:false},
     tearImage,
     heartImageFull,
     heartImageHalf,
-    0
+    0,
+    undefined,
+    isaacDamagedAnimation
 );
 isaac.addToImageArray({    
     Name: "down",
@@ -358,6 +377,10 @@ let basementMap3 = new LevelMap(2, "basement",basementMapImage,
         BottomDoorImage:basementDoorBottomImage
     });
 
+let spikeManager = new SpikeManager();
+let spikeObstacleImage = $.loadImage(50,50, "assets/images/obstacles/spikes.png");
+let spike = new Spike(spikeObstacleImage, 400, 400);
+
 let isAttacking = false;
 let changedRoomSpot = undefined;
 
@@ -390,6 +413,8 @@ function preload(){
 
     //temporarily set the first map
     mapManager.currentLevelMap = basementMap;
+
+    spikeManager.AddToGroup(spike);
 }
 
 function update() {
@@ -410,6 +435,7 @@ function update() {
     }else if(screenManager.currentScreen === "play"){
         mapManager.currentLevelMap!.draw();
         mapManager.currentLevelMap!.drawDoors();
+        spikeManager.DrawGroup();
         
         characterManager.currentCharacter!.collider.draw();
         characterManager.currentCharacter!.drawHealthBar()
@@ -424,6 +450,28 @@ function update() {
             characterManager.currentCharacter!.collider.y = changedRoomSpot.newY;
             changedRoomSpot = undefined;
         }
+
+        //update character invulnerability timer
+        characterManager.currentCharacter!.timers.InvulnerabilityTimer.update();
+
+        //spikeManager collides with current character
+        if(spikeManager.Collides(characterManager.currentCharacter?.collider)){
+            spikeCollision();
+        }
+
+        if(characterManager.currentCharacter!.timers.InvulnerabilityTimer.tracking){
+            characterManager.currentCharacter!.damagedAnimation!.x = characterManager.currentCharacter!.collider.x;
+            characterManager.currentCharacter!.damagedAnimation!.y = characterManager.currentCharacter!.collider.y;
+            characterManager.currentCharacter!.damagedAnimation?.draw();
+        }
+    }
+}
+
+function spikeCollision(){
+    if(!characterManager.currentCharacter!.timers.InvulnerabilityTimer.tracking){
+        console.log("characterManager.currentCharacter!.timers.InvulnerabilityTimer= ", characterManager.currentCharacter!.timers.InvulnerabilityTimer)
+        characterManager.currentCharacter!.timers.InvulnerabilityTimer.start();
+        characterManager.currentCharacter!.takeDamage(2);
     }
 }
 
