@@ -41,7 +41,6 @@ let isaacDamagedAnimation = $.loadAnimation(
     "assets/images/characters/isaac/isaac_profile.png",
     "assets/images/characters/isaac/isaac_damaged.png",
 );
-
 isaacDamagedAnimation.duration = 2;
 isaacDamagedAnimation.scale = 40;
 
@@ -104,6 +103,18 @@ isaac.addToImageArray({
     Shooting: true,
 });
 
+let magdaleneDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/magdalene/magdalene_damaged.png",
+    "assets/images/characters/magdalene/magdalene_profile.png",
+    "assets/images/characters/magdalene/magdalene_damaged.png",
+    "assets/images/characters/magdalene/magdalene_profile.png",
+    "assets/images/characters/magdalene/magdalene_damaged.png",
+);
+magdaleneDamagedAnimation.duration = 2;
+magdaleneDamagedAnimation.scale = 40;
+
 let magdaleneImage = $.loadImage(0,0,"assets/images/characters/magdalene/magdalene_profile.png");
 let magdalene = new Character(
     "magdalene", magdaleneImage,
@@ -111,8 +122,22 @@ let magdalene = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    1
+    1,
+    undefined,
+    magdaleneDamagedAnimation
 );
+
+let cainDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/cain/cain_damaged.png",
+    "assets/images/characters/cain/cain_profile.png",
+    "assets/images/characters/cain/cain_damaged.png",
+    "assets/images/characters/cain/cain_profile.png",
+    "assets/images/characters/cain/cain_damaged.png",
+);
+cainDamagedAnimation.duration = 2;
+cainDamagedAnimation.scale = 40;
 
 let cainImage = $.loadImage(0,0,"assets/images/characters/cain/cain_profile.png");
 let cain = new Character(
@@ -121,8 +146,22 @@ let cain = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    2
+    2,
+    undefined,
+    cainDamagedAnimation
 );
+
+let judasDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/judas/judas_damaged.png",
+    "assets/images/characters/judas/judas_profile.png",
+    "assets/images/characters/judas/judas_damaged.png",
+    "assets/images/characters/judas/judas_profile.png",
+    "assets/images/characters/judas/judas_damaged.png",
+);
+judasDamagedAnimation.duration = 2;
+judasDamagedAnimation.scale = 40;
 
 //if judas dies, i think he turns into dark judas
 let judasImage = $.loadImage(0,0,"assets/images/characters/judas/judas_profile.png");
@@ -132,8 +171,22 @@ let judas = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    3
+    3,
+    undefined,
+    judasDamagedAnimation
 );
+
+let darkjudasDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/darkjudas/darkjudas_damaged.png",
+    "assets/images/characters/darkjudas/darkjudas_profile.png",
+    "assets/images/characters/darkjudas/darkjudas_damaged.png",
+    "assets/images/characters/darkjudas/darkjudas_profile.png",
+    "assets/images/characters/darkjudas/darkjudas_damaged.png",
+);
+darkjudasDamagedAnimation.duration = 2;
+darkjudasDamagedAnimation.scale = 40;
 
 let darkjudasImage = $.loadImage(0,0,"assets/images/characters/darkjudas/darkjudas_profile.png");
 let darkjudas = new Character(
@@ -143,9 +196,21 @@ let darkjudas = new Character(
     heartImageFull,
     heartImageHalf,
     -1,
-    false
+    false,
+    darkjudasDamagedAnimation
 );
 
+let bluebabyDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/bluebaby/bluebaby_damaged.png",
+    "assets/images/characters/bluebaby/bluebaby_profile.png",
+    "assets/images/characters/bluebaby/bluebaby_damaged.png",
+    "assets/images/characters/bluebaby/bluebaby_profile.png",
+    "assets/images/characters/bluebaby/bluebaby_damaged.png",
+);
+bluebabyDamagedAnimation.duration = 2;
+bluebabyDamagedAnimation.scale = 40;
 
 let bluebabyImage = $.loadImage(0,0,"assets/images/characters/bluebaby/bluebaby_profile.png");
 let bluebaby = new Character(
@@ -154,8 +219,22 @@ let bluebaby = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    4
+    4,
+    undefined,
+    bluebabyDamagedAnimation
 );
+
+let eveDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/eve/eve_damaged.png",
+    "assets/images/characters/eve/eve_profile.png",
+    "assets/images/characters/eve/eve_damaged.png",
+    "assets/images/characters/eve/eve_profile.png",
+    "assets/images/characters/eve/eve_damaged.png",
+);
+eveDamagedAnimation.duration = 2;
+eveDamagedAnimation.scale = 40;
 
 let eveImage = $.loadImage(0,0,"assets/images/characters/eve/eve_profile.png");
 let eve = new Character(
@@ -164,8 +243,23 @@ let eve = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    5
+    5,
+    undefined,
+    eveDamagedAnimation
 );
+
+
+let samsonDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/samson/samson_damaged.png",
+    "assets/images/characters/samson/samson_profile.png",
+    "assets/images/characters/samson/samson_damaged.png",
+    "assets/images/characters/samson/samson_profile.png",
+    "assets/images/characters/samson/samson_damaged.png",
+);
+samsonDamagedAnimation.duration = 2;
+samsonDamagedAnimation.scale = 40;
 
 let samsonImage = $.loadImage(0,0,"assets/images/characters/samson/samson_profile.png");
 let samson = new Character(
@@ -174,8 +268,25 @@ let samson = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    6
+    6,
+    undefined,
+    samsonDamagedAnimation
 );  
+
+
+let azazelDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/azazel/azazel_damaged.png",
+    "assets/images/characters/azazel/azazel_profile.png",
+    "assets/images/characters/azazel/azazel_damaged.png",
+    "assets/images/characters/azazel/azazel_profile.png",
+    "assets/images/characters/azazel/azazel_damaged.png",
+);
+azazelDamagedAnimation.duration = 2;
+azazelDamagedAnimation.scale = 40;
+azazelDamagedAnimation.offset.x = 20;
+azazelDamagedAnimation.offset.y = 12;
 
 let azazelImage = $.loadImage(0,0,"assets/images/characters/azazel/azazel_profile.png");
 let azazel = new Character(
@@ -184,9 +295,24 @@ let azazel = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    7
+    7,
+    undefined,
+    azazelDamagedAnimation
 );
 //tear speed = +0.5, x0.267
+
+
+let lazarusDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/lazarus/lazarus_damaged.png",
+    "assets/images/characters/lazarus/lazarus_profile.png",
+    "assets/images/characters/lazarus/lazarus_damaged.png",
+    "assets/images/characters/lazarus/lazarus_profile.png",
+    "assets/images/characters/lazarus/lazarus_damaged.png",
+);
+lazarusDamagedAnimation.duration = 2;
+lazarusDamagedAnimation.scale = 40;
 
 //if lazarus dies, he will turn into lazarusRisen
 let lazarusImage = $.loadImage(0,0,"assets/images/characters/lazarus/lazarus_profile.png");
@@ -199,6 +325,19 @@ let lazarus = new Character(
     8
 );
 
+
+let lazarus_risenDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/lazarus_risen/lazarus_risen_damaged.png",
+    "assets/images/characters/lazarus_risen/lazarus_risen_profile.png",
+    "assets/images/characters/lazarus_risen/lazarus_risen_damaged.png",
+    "assets/images/characters/lazarus_risen/lazarus_risen_profile.png",
+    "assets/images/characters/lazarus_risen/lazarus_risen_damaged.png",
+);
+lazarus_risenDamagedAnimation.duration = 2;
+lazarus_risenDamagedAnimation.scale = 40;
+
 let lazarusRisenImage = $.loadImage(0,0,"assets/images/characters/lazarus_risen/lazarus_risen_profile.png");
 let lazarusRisen = new Character(
     "lazarus risen", lazarusRisenImage,
@@ -207,8 +346,22 @@ let lazarusRisen = new Character(
     heartImageFull,
     heartImageHalf,
     -1,
-    false
+    false,
+    lazarus_risenDamagedAnimation
 );
+
+
+let edenDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/eden/eden_damaged.png",
+    "assets/images/characters/eden/eden_profile.png",
+    "assets/images/characters/eden/eden_damaged.png",
+    "assets/images/characters/eden/eden_profile.png",
+    "assets/images/characters/eden/eden_damaged.png",
+);
+edenDamagedAnimation.duration = 2;
+edenDamagedAnimation.scale = 40;
 
 // eden has randomised stats
 // eden can have 2 red hearts, 3 red hearts, 1 red heart, and a combination of soul hearts as well (3 soul hearts, or 2 sould hearts 1 red heart etc)
@@ -225,8 +378,23 @@ let eden = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    9
+    9,
+    undefined,
+    edenDamagedAnimation
 );
+
+
+let lostDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/lost/lost_damaged.png",
+    "assets/images/characters/lost/lost_profile.png",
+    "assets/images/characters/lost/lost_damaged.png",
+    "assets/images/characters/lost/lost_profile.png",
+    "assets/images/characters/lost/lost_damaged.png",
+);
+lostDamagedAnimation.duration = 2;
+lostDamagedAnimation.scale = 40;
 
 //does not start with holy shield, and has no hearts 
 let lostImage = $.loadImage(0,0,"assets/images/characters/lost/lost_profile.png");
@@ -236,8 +404,23 @@ let lost = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    10
+    10,
+    undefined,
+    lostDamagedAnimation
 );
+
+
+let lilithDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/lilith/lilith_damaged.png",
+    "assets/images/characters/lilith/lilith_profile.png",
+    "assets/images/characters/lilith/lilith_damaged.png",
+    "assets/images/characters/lilith/lilith_profile.png",
+    "assets/images/characters/lilith/lilith_damaged.png",
+);
+lilithDamagedAnimation.duration = 2;
+lilithDamagedAnimation.scale = 40;
 
 //lilith cannot shoot, she has a familiar that does
 let lilithImage = $.loadImage(0,0,"assets/images/characters/lilith/lilith_profile.png");
@@ -247,8 +430,23 @@ let lilith = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    11
+    11,
+    undefined,
+    lilithDamagedAnimation
 );
+
+
+let keeperDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/keeper/keeper_damaged.png",
+    "assets/images/characters/keeper/keeper_profile.png",
+    "assets/images/characters/keeper/keeper_damaged.png",
+    "assets/images/characters/keeper/keeper_profile.png",
+    "assets/images/characters/keeper/keeper_damaged.png",
+);
+keeperDamagedAnimation.duration = 2;
+keeperDamagedAnimation.scale = 40;
 
 //keeper has coins instead of hearts
 let keeperImage = $.loadImage(0,0,"assets/images/characters/keeper/keeper_profile.png");
@@ -258,8 +456,23 @@ let keeper = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    12
+    12,
+    undefined,
+    keeperDamagedAnimation
 );
+
+
+let apollyonDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/apollyon/apollyon_damaged.png",
+    "assets/images/characters/apollyon/apollyon_profile.png",
+    "assets/images/characters/apollyon/apollyon_damaged.png",
+    "assets/images/characters/apollyon/apollyon_profile.png",
+    "assets/images/characters/apollyon/apollyon_damaged.png",
+);
+apollyonDamagedAnimation.duration = 2;
+apollyonDamagedAnimation.scale = 40;
 
 let apollyonImage = $.loadImage(0,0,"assets/images/characters/apollyon/apollyon_profile.png");
 let apollyon = new Character(
@@ -268,8 +481,23 @@ let apollyon = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    13
+    13,
+    undefined,
+    apollyonDamagedAnimation
 );
+
+
+let theforgottenDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/theforgotten/theforgotten_damaged.png",
+    "assets/images/characters/theforgotten/theforgotten_profile.png",
+    "assets/images/characters/theforgotten/theforgotten_damaged.png",
+    "assets/images/characters/theforgotten/theforgotten_profile.png",
+    "assets/images/characters/theforgotten/theforgotten_damaged.png",
+);
+theforgottenDamagedAnimation.duration = 2;
+theforgottenDamagedAnimation.scale = 40;
 
 //forgotten has bone hearts, which are effectively 3 heart points each
 //tear speed is +0; x1/2
@@ -281,8 +509,23 @@ let theforgotten = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    14
+    14,
+    undefined,
+    theforgottenDamagedAnimation
 );
+
+
+let thesoulDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/thesoul/thesoul_damaged.png",
+    "assets/images/characters/thesoul/thesoul_profile.png",
+    "assets/images/characters/thesoul/thesoul_damaged.png",
+    "assets/images/characters/thesoul/thesoul_profile.png",
+    "assets/images/characters/thesoul/thesoul_damaged.png",
+);
+thesoulDamagedAnimation.duration = 2;
+thesoulDamagedAnimation.scale = 40;
 
 let thesoulImage = $.loadImage(0,0,"assets/images/characters/thesoul/thesoul_profile.png");
 let thesoul = new Character(
@@ -291,8 +534,25 @@ let thesoul = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    14
+    14,
+    undefined,
+    thesoulDamagedAnimation
 );
+
+
+let bethanyDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/bethany/bethany_damaged.png",
+    "assets/images/characters/bethany/bethany_profile.png",
+    "assets/images/characters/bethany/bethany_damaged.png",
+    "assets/images/characters/bethany/bethany_profile.png",
+    "assets/images/characters/bethany/bethany_damaged.png",
+);
+bethanyDamagedAnimation.duration = 2;
+bethanyDamagedAnimation.scale = 40;
+bethanyDamagedAnimation.offset.x = 13;
+bethanyDamagedAnimation.offset.y = 4;
 
 let bethanyImage = $.loadImage(0,0,"assets/images/characters/bethany/bethany_profile.png");
 let bethany = new Character(
@@ -301,8 +561,23 @@ let bethany = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    15
+    15,
+    undefined,
+    bethanyDamagedAnimation
 );
+
+
+let jacobDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/jacob/jacob_damaged.png",
+    "assets/images/characters/jacob/jacob_profile.png",
+    "assets/images/characters/jacob/jacob_damaged.png",
+    "assets/images/characters/jacob/jacob_profile.png",
+    "assets/images/characters/jacob/jacob_damaged.png",
+);
+jacobDamagedAnimation.duration = 2;
+jacobDamagedAnimation.scale = 40;
 
 let jacobImage = $.loadImage(0,0,"assets/images/characters/jacob/jacob_profile.png");
 let jacob = new Character(
@@ -311,8 +586,23 @@ let jacob = new Character(
     tearImage,
     heartImageFull,
     heartImageHalf,
-    16
+    16,
+    undefined,
+    jacobDamagedAnimation
 );
+
+
+let esauDamagedAnimation = $.loadAnimation(
+    20,
+    20,
+    "assets/images/characters/esau/esau_damaged.png",
+    "assets/images/characters/esau/esau_profile.png",
+    "assets/images/characters/esau/esau_damaged.png",
+    "assets/images/characters/esau/esau_profile.png",
+    "assets/images/characters/esau/esau_damaged.png",
+);
+esauDamagedAnimation.duration = 2;
+esauDamagedAnimation.scale = 40;
 
 let esauImage = $.loadImage(0,0,"assets/images/characters/esau/esau_profile.png");
 let esau = new Character(
@@ -322,7 +612,10 @@ let esau = new Character(
     heartImageFull,
     heartImageHalf,
     16,
+    undefined,
+    esauDamagedAnimation
 );
+
 
 let screenManager = new ScreenManager("menu");
 
